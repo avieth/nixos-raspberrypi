@@ -96,7 +96,8 @@ final: prev: {
     # renderSystem = "gles";
   };
 
-  libcamera = final.libcamera_rpi;
+  libcamera_rpi = final.libcamera;
+  /* libcamera = final.libcamera_rpi;
 
   libcamera_rpi = prev.libcamera.overrideAttrs (old: rec {
     pname = old.pname + "-rpi";
@@ -126,7 +127,7 @@ final: prev: {
       homepage = "https://github.com/raspberrypi/libcamera";
       changelog = "https://github.com/raspberrypi/libcamera/releases/tag/v${version}";
     };
-  });
+  });*/ 
 
   vlc = prev.vlc.overrideAttrs (old: {
     pname = old.pname + "-rpi";

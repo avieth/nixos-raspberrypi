@@ -15,6 +15,9 @@
   # causes problems with linux-rpi
   disabledModules = [ (modulesPath + "profiles/all-hardware.nix") ];
 
+  # Base profile flips on zfs but it's unlikely a raspberry pi will be using that
+  boot.supportedFilesystems = lib.mkForce [ "ext2" "ext3" "ext4" "vfat" ];
+
   # boot.* stuff for rpi is already configured in rpi{4,5}.nix
   # and `bootloader-config`
 
