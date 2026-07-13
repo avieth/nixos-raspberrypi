@@ -52,6 +52,7 @@ final: prev: {
     ffmpegVariant = "full";
   };
 
+  /*
   kodi =
     (prev.kodi.overrideAttrs (old: {
       pname = old.pname + "-rpi";
@@ -74,27 +75,27 @@ final: prev: {
         ]
         ++ [
           (enableFeature true "NEON")
-          (enableFeature false "VAAPI")
+          (enableFeature true "VAAPI")
         ]
         ++ [
-          "-DENABLE_CEC=ON"
+          "-DENABLE_CEC=OFF"
           "-DENABLE_AVAHI=ON"
-          #-DAPP_RENDER_SYSTEM=
         ];
     })).override
       {
-        vdpauSupport = false;
+        vdpauSupport = true;
       };
 
-  kodi-gbm = final.kodi.override {
+  kodi-gbm = (final.kodi.override {
     gbmSupport = true;
-  };
+  }).overrideAttrs(old: { pname = old.pname + "-gbm"; });
 
-  kodi-wayland = final.kodi.override {
+  kodi-wayland = (final.kodi.override {
     waylandSupport = true;
     # nixos defaults to "gl" for wayland, but libreelec uses "gles"
     # renderSystem = "gles";
-  };
+  }).overrideAttrs(old: { pname = old.pname + "-wayland"; });
+  */
 
   libcamera_rpi = final.libcamera;
   /* libcamera = final.libcamera_rpi;
