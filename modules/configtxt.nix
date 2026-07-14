@@ -60,7 +60,6 @@
           enable = lib.mkDefault true;
           value = lib.mkDefault true;
         };
-        gpu_mem = { enable = lib.mkDefault true; value = lib.mkDefault 128; };
       };
       base-dt-params = {
         # Uncomment some or all of these to enable the optional hardware interfaces
